@@ -1,0 +1,69 @@
+
+<header class="sticky top-0 z-50 border-b border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
+  <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-4">
+
+    <!-- Logo -->
+    <a href="#start" class="text-2xl font-bold tracking-tight">
+      Klima<span class="text-emerald-500">Gum</span>
+    </a>
+
+    <!-- Nawigacja -->
+    <nav
+      aria-label="Nawigacja główna"
+      class="order-3 flex w-full items-center gap-5 text-sm font-medium md:order-2 md:w-auto"
+    >
+      <a href="#start" class="hover:text-emerald-500">Start</a>
+      <a href="#uslugi" class="hover:text-emerald-500">Usługi</a>
+      <a href="#o-nas" class="hover:text-emerald-500">O nas</a>
+      <a href="#kontakt" class="hover:text-emerald-500">Kontakt</a>
+    </nav>
+
+    <!-- Przełącznik motywu -->
+    <button
+    id="theme-toggle"
+    type="button"
+    class="order-2 flex cursor-pointer items-center gap-2 rounded-lg border border-zinc-300 px-4 py-2 text-sm font-medium hover:bg-zinc-100 md:order-3 dark:border-zinc-700 dark:hover:bg-zinc-800"
+    >
+    <span
+        id="theme-icon"
+        class="material-symbols-rounded"
+        aria-hidden="true"
+    >
+        light_mode
+    </span>
+    <span id="theme-label">Jasny motyw</span>
+    </button>
+
+  </div>
+</header>
+
+
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>("#theme-toggle");
+  const icon = document.querySelector<HTMLElement>("#theme-icon");
+  const label = document.querySelector<HTMLElement>("#theme-label");
+
+  function updateButton() {
+    const isDark = document.documentElement.classList.contains("dark");
+
+    if (icon) {
+      icon.textContent = isDark ? "light_mode" : "dark_mode";
+    }
+
+    if (label) {
+      label.textContent = isDark ? "Jasny motyw" : "Ciemny motyw";
+    }
+  }
+
+  updateButton();
+
+  button?.addEventListener("click", () => {
+    const isDark = document.documentElement.classList.toggle("dark");
+
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+
+    updateButton();
+  });
+</script>
+

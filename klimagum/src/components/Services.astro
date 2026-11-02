@@ -1,0 +1,67 @@
+
+---
+const services = [
+  {
+    icon: "tire_repair",
+    title: "Wulkanizacja",
+    description: "Wymiana, naprawa i wyważanie opon."
+  },
+  {
+    icon: "ac_unit",
+    title: "Klimatyzacja",
+    description: "Serwis i obsługa klimatyzacji samochodowej."
+  },
+  {
+    icon: "build",
+    title: "Serwis samochodowy",
+    description: "Bieżąca obsługa i naprawy pojazdów."
+  },
+  {
+    icon: "water_drops",
+    title: "Wymiana oleju i płynów eksploatacyjnych",
+    description: "Pełny serwis olejowy oraz kontrola i wymiana płynów chłodniczych, hamulcowych czy wspomagania."
+  }
+];
+---
+
+<section
+  id="uslugi"
+  class="scroll-mt-24 bg-zinc-100 py-20 dark:bg-zinc-900"
+>
+  <div class="mx-auto max-w-6xl px-6">
+
+    <div class="mb-12 text-center">
+      <h2 class="mb-4 text-3xl font-bold sm:text-4xl">
+        Nasze usługi
+      </h2>
+
+      <p class="text-zinc-600 dark:text-zinc-400">
+        Sprawdź, w czym możemy Ci pomóc.
+      </p>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-2">
+      {services.map((service) => (
+        <article
+          class="rounded-xl border border-zinc-200 bg-white p-8 transition-colors hover:border-emerald-500 dark:border-zinc-800 dark:bg-zinc-950 dark:hover:border-emerald-500"
+        >
+          <span
+            class="material-symbols-rounded mb-5 text-4xl text-emerald-500"
+            aria-hidden="true"
+          >
+            {service.icon}
+          </span>
+
+          <h3 class="mb-3 text-xl font-semibold">
+            {service.title}
+          </h3>
+
+          <p class="leading-relaxed text-zinc-600 dark:text-zinc-400">
+            {service.description}
+          </p>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>

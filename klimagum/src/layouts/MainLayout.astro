@@ -1,0 +1,32 @@
+---
+import "../styles/global.css";
+import "material-symbols/rounded.css";
+import Header from "../components/Header.astro";
+
+interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="pl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <script is:inline>
+        const savedTheme = localStorage.getItem("theme");
+
+        document.documentElement.classList.toggle(
+            "dark",
+            savedTheme !== "light"
+        );
+    </script>
+</head>
+<body class="min-h-screen bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
+    <Header/>
+    <slot/>
+</body>
+</html>
