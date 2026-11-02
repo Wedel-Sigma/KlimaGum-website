@@ -1,0 +1,98 @@
+
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
+  <div class="mx-auto max-w-6xl px-6 py-12">
+
+    <!-- Główna część stopki -->
+    <div class="grid gap-10 md:grid-cols-3">
+
+      <!-- Informacje o firmie -->
+      <div>
+        <a href="/#start" class="text-2xl font-bold tracking-tight">
+          Klima<span class="text-emerald-500">Gum</span>
+        </a>
+
+        <p class="mt-4 max-w-xs leading-relaxed text-zinc-600 dark:text-zinc-400">
+          Wulkanizacja i serwis samochodowy
+          w Grębocinie. Zadbamy o Twój samochód.
+        </p>
+      </div>
+
+      <!-- Nawigacja -->
+      <nav aria-label="Nawigacja w stopce">
+        <h2 class="mb-4 font-semibold">Nawigacja</h2>
+
+        <ul class="space-y-3 text-zinc-600 dark:text-zinc-400">
+          <li>
+            <a href="/#start" class="hover:text-emerald-500">
+              Start
+            </a>
+          </li>
+          <li>
+            <a href="/#uslugi" class="hover:text-emerald-500">
+              Usługi
+            </a>
+          </li>
+          <li>
+            <a href="/#o-nas" class="hover:text-emerald-500">
+              O nas
+            </a>
+          </li>
+          <li>
+            <a href="/#kontakt" class="hover:text-emerald-500">
+              Kontakt
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Dane kontaktowe -->
+      <div class="space-y-6">
+        <div>
+            <h2 class="mb-4 font-semibold">Kontakt</h2>
+
+            <address class="not-italic leading-relaxed text-zinc-600 dark:text-zinc-400">
+            ul. Kowalewska 5a<br />
+            Grębocin
+            </address>
+
+            <a
+            href="https://www.google.com/maps/search/?api=1&query=Kowalewska%205a%2C%20Gr%C4%99bocin"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-4 inline-flex items-center gap-2 font-medium text-emerald-500 hover:text-emerald-600"
+            >
+            <span class="material-symbols-rounded" aria-hidden="true">
+                location_on
+            </span>
+            Wyznacz trasę
+            </a>
+        </div>
+
+        <!-- Godziny otwarcia -->
+        <div>
+            <h2 class="mb-4 font-semibold">Godziny otwarcia</h2>
+            <p class="leading-relaxed text-zinc-600 dark:text-zinc-400">
+                Pn-Pt: 8:00 - 16:00 <br />
+                Sob: 8:00 - 12:00
+            </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dolny pasek -->
+    <div class="mt-12 flex flex-col justify-between gap-3 border-t border-zinc-200 pt-6 text-sm text-zinc-500 dark:border-zinc-800 dark:text-zinc-400 sm:flex-row">
+      <p>
+        &copy; {currentYear} KlimaGum. Wszelkie prawa zastrzeżone.
+      </p>
+
+      <p>
+        Wulkanizacja i serwis samochodowy - Grębocin
+      </p>
+    </div>
+
+  </div>
+</footer>
