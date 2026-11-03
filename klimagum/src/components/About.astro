@@ -21,7 +21,10 @@ const photos = [
     class="relative isolate overflow-hidden bg-zinc-900"
   >
     <!-- Zdjęcia w tle -->
-    <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+    <div
+      class="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+    >
       {photos.map((photo, index) => (
         <div
           data-slide
@@ -52,36 +55,47 @@ const photos = [
     <div
       class="relative z-10 mx-auto flex min-h-[640px] max-w-6xl flex-col justify-between gap-10 px-6 py-16 lg:min-h-[660px] lg:py-20"
     >
-      <!-- Nieruchomy panel tekstowy -->
+      <!-- Panel tekstowy -->
       <div
-        class="w-full max-w-xl rounded-2xl border border-white/20 bg-white/90 p-6 shadow-2xl backdrop-blur-md sm:p-10 dark:bg-zinc-950/85"
+        class="w-full max-w-xl rounded-2xl border border-white/30 bg-white/80 p-6 shadow-2xl backdrop-blur-md sm:p-10 dark:border-white/20 dark:bg-zinc-950/80"
       >
-        <p class="mb-4 font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+        <p
+          class="mb-4 font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400"
+        >
           Poznaj nas
         </p>
 
-        <h2 class="mb-6 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-white">
+        <h2
+          class="mb-6 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-white"
+        >
           Kilka słów o KlimaGum
         </h2>
 
-        <p class="mb-4 leading-relaxed text-zinc-700 dark:text-zinc-300">
+        <p
+          class="mb-4 leading-relaxed text-zinc-700 dark:text-zinc-300"
+        >
           KlimaGum to lokalny warsztat samochodowy w Grębocinie,
           zajmujący się wulkanizacją oraz bieżącą obsługą pojazdów.
         </p>
 
-        <p class="mb-6 leading-relaxed text-zinc-700 dark:text-zinc-300">
+        <p
+          class="mb-6 leading-relaxed text-zinc-700 dark:text-zinc-300"
+        >
           Oferujemy między innymi wymianę i naprawę opon,
           serwis klimatyzacji oraz wymianę oleju i płynów
           eksploatacyjnych.
         </p>
 
-        <div class="mb-8 flex items-center gap-3 text-zinc-900 dark:text-white">
+        <div
+          class="mb-8 flex items-center gap-3 text-zinc-900 dark:text-white"
+        >
           <span
             class="material-symbols-rounded text-emerald-500"
             aria-hidden="true"
           >
             location_on
           </span>
+
           <span class="font-medium">
             Grębocin, okolice Torunia
           </span>
@@ -89,20 +103,29 @@ const photos = [
 
         <a
           href="#kontakt"
-          class="inline-flex items-center gap-2 font-semibold text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
+          class="inline-flex items-center gap-2 font-semibold text-emerald-600 transition-colors hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
         >
           Kontakt i dojazd
-          <span class="material-symbols-rounded" aria-hidden="true">
+
+          <span
+            class="material-symbols-rounded"
+            aria-hidden="true"
+          >
             arrow_forward
           </span>
         </a>
       </div>
 
       <!-- Sterowanie galerią -->
-      <div class="flex flex-wrap items-center justify-between gap-3 rounded-xl bg-zinc-950/65 p-3 text-white backdrop-blur-sm">
-
+      <div
+        class="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-white/30 bg-white/80 p-3 text-zinc-900 shadow-xl backdrop-blur-md dark:border-white/20 dark:bg-zinc-950/80 dark:text-white"
+      >
         <!-- Wskaźniki zdjęć -->
-        <div class="flex items-center" role="group" aria-label="Wybór zdjęcia">
+        <div
+          class="flex items-center"
+          role="group"
+          aria-label="Wybór zdjęcia"
+        >
           {photos.map((_, index) => (
             <button
               type="button"
@@ -113,44 +136,56 @@ const photos = [
               class="group flex h-10 w-8 cursor-pointer items-center justify-center rounded focus-visible:outline-2 focus-visible:outline-emerald-400"
             >
               <span
-                class="h-2.5 w-2.5 rounded-full bg-white/50 transition-colors group-data-[active=true]:bg-emerald-400"
+                class="h-2.5 w-2.5 rounded-full bg-zinc-500/50 transition-colors group-data-[active=true]:bg-emerald-500 dark:bg-white/50 dark:group-data-[active=true]:bg-emerald-400"
               ></span>
             </button>
           ))}
         </div>
 
-        <!-- Przyciski -->
+        <!-- Przyciski sterowania -->
         <div class="flex items-center gap-2">
+          <!-- Pauza -->
           <button
             data-pause
             type="button"
             aria-label="Zatrzymaj automatyczną zmianę zdjęć"
             aria-pressed="false"
-            class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg hover:bg-white/15 motion-reduce:hidden"
+            class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg transition-colors hover:bg-zinc-900/10 focus-visible:outline-2 focus-visible:outline-emerald-500 motion-reduce:hidden dark:hover:bg-white/15"
           >
-            <span class="material-symbols-rounded" aria-hidden="true">
+            <span
+              class="material-symbols-rounded"
+              aria-hidden="true"
+            >
               pause
             </span>
           </button>
 
+          <!-- Poprzednie zdjęcie -->
           <button
             data-prev
             type="button"
             aria-label="Poprzednie zdjęcie"
-            class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg hover:bg-white/15"
+            class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg transition-colors hover:bg-zinc-900/10 focus-visible:outline-2 focus-visible:outline-emerald-500 dark:hover:bg-white/15"
           >
-            <span class="material-symbols-rounded" aria-hidden="true">
+            <span
+              class="material-symbols-rounded"
+              aria-hidden="true"
+            >
               chevron_left
             </span>
           </button>
 
+          <!-- Następne zdjęcie -->
           <button
             data-next
             type="button"
             aria-label="Następne zdjęcie"
-            class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg hover:bg-white/15"
+            class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg transition-colors hover:bg-zinc-900/10 focus-visible:outline-2 focus-visible:outline-emerald-500 dark:hover:bg-white/15"
           >
-            <span class="material-symbols-rounded" aria-hidden="true">
+            <span
+              class="material-symbols-rounded"
+              aria-hidden="true"
+            >
               chevron_right
             </span>
           </button>
@@ -160,9 +195,10 @@ const photos = [
   </div>
 </section>
 
-
 <script>
-  const carousel = document.querySelector<HTMLElement>("#about-carousel");
+  const carousel = document.querySelector<HTMLElement>(
+    "#about-carousel"
+  );
 
   if (carousel) {
     const slides = Array.from(
@@ -173,13 +209,19 @@ const photos = [
       carousel.querySelectorAll<HTMLButtonElement>("[data-dot]")
     );
 
-    const prevButton = carousel.querySelector<HTMLButtonElement>("[data-prev]");
-    const nextButton = carousel.querySelector<HTMLButtonElement>("[data-next]");
-    const pauseButton = carousel.querySelector<HTMLButtonElement>("[data-pause]");
+    const prevButton =
+      carousel.querySelector<HTMLButtonElement>("[data-prev]");
 
-    const pauseIcon = pauseButton?.querySelector<HTMLElement>(
-      ".material-symbols-rounded"
-    );
+    const nextButton =
+      carousel.querySelector<HTMLButtonElement>("[data-next]");
+
+    const pauseButton =
+      carousel.querySelector<HTMLButtonElement>("[data-pause]");
+
+    const pauseIcon =
+      pauseButton?.querySelector<HTMLElement>(
+        ".material-symbols-rounded"
+      );
 
     const reducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
@@ -189,7 +231,7 @@ const photos = [
     let paused = false;
     let timer: number | undefined;
 
-    // Wyświetlanie konkretnego zdjęcia
+    // Wyświetlanie wybranego zdjęcia
     function showSlide(index: number) {
       if (slides.length === 0) return;
 
@@ -201,8 +243,33 @@ const photos = [
 
       dots.forEach((dot, i) => {
         dot.dataset.active = String(i === current);
-        dot.setAttribute("aria-current", String(i === current));
+
+        dot.setAttribute(
+          "aria-current",
+          String(i === current)
+        );
       });
+    }
+
+    // Aktualizacja przycisku pauzy
+    function updatePauseButton() {
+      pauseButton?.setAttribute(
+        "aria-pressed",
+        String(paused)
+      );
+
+      pauseButton?.setAttribute(
+        "aria-label",
+        paused
+          ? "Wznów automatyczną zmianę zdjęć"
+          : "Zatrzymaj automatyczną zmianę zdjęć"
+      );
+
+      if (pauseIcon) {
+        pauseIcon.textContent = paused
+          ? "play_arrow"
+          : "pause";
+      }
     }
 
     // Automatyczne przewijanie
@@ -222,6 +289,7 @@ const photos = [
       }
     }
 
+    // Ręczna zmiana zdjęcia
     function changeSlide(index: number) {
       showSlide(index);
       syncAutoplay();
@@ -241,64 +309,75 @@ const photos = [
       });
     });
 
-    // Przycisk pauzy
+    // Zatrzymywanie i wznawianie karuzeli
     pauseButton?.addEventListener("click", () => {
       paused = !paused;
 
-      pauseButton.setAttribute("aria-pressed", String(paused));
-      pauseButton.setAttribute(
-        "aria-label",
-        paused
-          ? "Wznów automatyczną zmianę zdjęć"
-          : "Zatrzymaj automatyczną zmianę zdjęć"
-      );
-
-      if (pauseIcon) {
-        pauseIcon.textContent = paused ? "play_arrow" : "pause";
-      }
-
+      updatePauseButton();
       syncAutoplay();
     });
 
-    // Zatrzymanie po wejściu klawiaturą w kontrolki
+    // Pauza podczas nawigacji klawiaturą
     carousel.addEventListener("focusin", (event) => {
       if (!(event.target instanceof HTMLElement)) return;
 
-      if (event.target.matches("button")) {
+      if (event.target.matches("button:focus-visible")) {
         paused = true;
-        pauseButton?.setAttribute("aria-pressed", "true");
-        pauseButton?.setAttribute(
-          "aria-label",
-          "Wznów automatyczną zmianę zdjęć"
-        );
-        if (pauseIcon) pauseIcon.textContent = "play_arrow";
+
+        updatePauseButton();
         syncAutoplay();
       }
     });
 
-    // Pauza, gdy karta przeglądarki jest nieaktywna
-    document.addEventListener("visibilitychange", syncAutoplay);
-    reducedMotion.addEventListener("change", syncAutoplay);
+    // Pauza na nieaktywnej karcie
+    document.addEventListener(
+      "visibilitychange",
+      syncAutoplay
+    );
 
-    // Gesty przesuwania na telefonie
+    // Reagowanie na ustawienia dostępności
+    reducedMotion.addEventListener(
+      "change",
+      syncAutoplay
+    );
+
+    // Przesuwanie zdjęć palcem
     let touchX = 0;
     let touchY = 0;
 
-    carousel.addEventListener("touchstart", (event) => {
-      touchX = event.touches[0].clientX;
-      touchY = event.touches[0].clientY;
-    }, { passive: true });
+    carousel.addEventListener(
+      "touchstart",
+      (event) => {
+        touchX = event.touches[0].clientX;
+        touchY = event.touches[0].clientY;
+      },
+      { passive: true }
+    );
 
-    carousel.addEventListener("touchend", (event) => {
-      const deltaX = event.changedTouches[0].clientX - touchX;
-      const deltaY = event.changedTouches[0].clientY - touchY;
+    carousel.addEventListener(
+      "touchend",
+      (event) => {
+        const deltaX =
+          event.changedTouches[0].clientX - touchX;
 
-      if (Math.abs(deltaX) > 50 &&
-          Math.abs(deltaX) > Math.abs(deltaY) * 1.25) {
-        changeSlide(current + (deltaX < 0 ? 1 : -1));
-      }
-    }, { passive: true });
+        const deltaY =
+          event.changedTouches[0].clientY - touchY;
 
+        if (
+          Math.abs(deltaX) > 50 &&
+          Math.abs(deltaX) > Math.abs(deltaY) * 1.25
+        ) {
+          changeSlide(
+            current + (deltaX < 0 ? 1 : -1)
+          );
+        }
+      },
+      { passive: true }
+    );
+
+    // Uruchomienie karuzeli
+    showSlide(0);
+    updatePauseButton();
     syncAutoplay();
   }
 </script>
