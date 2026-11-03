@@ -1,10 +1,8 @@
 
 ---
-const address = "Kowalewska 5a, Grębocin";
 
-const mapsUrl =
-  "https://www.google.com/maps/search/?api=1&query=" +
-  encodeURIComponent(address);
+import { site, mapsUrl } from "../data/site";
+
 ---
 
 <section
@@ -33,9 +31,12 @@ const mapsUrl =
           </span>
           <div>
             <h3 class="mb-1 font-semibold">Telefon</h3>
-            <p class="text-zinc-600 dark:text-zinc-400">
-              TBD
-            </p>
+            <a
+              href={`tel:${site.phone.replace(/\s/g, "")}`}
+              class="text-zinc-600 transition-colors hover:text-emerald-500 dark:text-zinc-400"
+            >
+              {site.phone}
+            </a>
           </div>
         </div>
 
@@ -46,7 +47,8 @@ const mapsUrl =
           <div>
             <h3 class="mb-1 font-semibold">Adres</h3>
             <address class="not-italic text-zinc-600 dark:text-zinc-400">
-              {address}
+              {site.address.street}<br />
+              {site.address.city}
             </address>
           </div>
         </div>
@@ -57,10 +59,13 @@ const mapsUrl =
           </span>
           <div>
             <h3 class="mb-1 font-semibold">Godziny otwarcia</h3>
-            <p class="text-zinc-600 dark:text-zinc-400">
-              Pn-Pt: 8:00 - 16:00 <br />
-              Sob: 8:00 - 12:00
-            </p>
+              <div class="text-zinc-600 dark:text-zinc-400">
+                {site.hours.map((entry) => (
+                  <p>
+                    {entry.days}: {entry.time}
+                  </p>
+                ))}
+              </div>
           </div>
         </div>
 

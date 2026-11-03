@@ -1,5 +1,7 @@
 
 ---
+import { site, mapsUrl } from "../data/site";
+
 const currentYear = new Date().getFullYear();
 ---
 
@@ -55,13 +57,12 @@ const currentYear = new Date().getFullYear();
             <h2 class="mb-4 font-semibold">Kontakt</h2>
 
             <address class="not-italic leading-relaxed text-zinc-600 dark:text-zinc-400">
-            ul. Kowalewska 5a<br />
-            Grębocin
+              {site.address.street}<br />
+              {site.address.city}
             </address>
 
             <a
-            href="https://www.google.com/maps/search/?api=1&query=Kowalewska%205a%2C%20Gr%C4%99bocin"
-            target="_blank"
+            href={mapsUrl}
             rel="noopener noreferrer"
             class="mt-4 inline-flex items-center gap-2 font-medium text-emerald-500 hover:text-emerald-600"
             >
@@ -74,11 +75,12 @@ const currentYear = new Date().getFullYear();
 
         <!-- Godziny otwarcia -->
         <div>
-            <h2 class="mb-4 font-semibold">Godziny otwarcia</h2>
-            <p class="leading-relaxed text-zinc-600 dark:text-zinc-400">
-                Pn-Pt: 8:00 - 16:00 <br />
-                Sob: 8:00 - 12:00
-            </p>
+            <h2 class="mb-4 font-semibold">Godziny otwarcia</h2>          
+            <div class="leading-relaxed text-zinc-600 dark:text-zinc-400">
+              {site.hours.map((entry) => (
+                <p>{entry.days}: {entry.time}</p>
+              ))}
+            </div>
         </div>
       </div>
     </div>
