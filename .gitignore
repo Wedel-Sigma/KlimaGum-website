@@ -13,6 +13,7 @@
 node_modules/
 dist/
 .astro/
+.vscode
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
