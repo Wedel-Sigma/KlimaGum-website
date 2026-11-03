@@ -1,77 +1,304 @@
 
-<section id="o-nas" class="scroll-mt-24 py-20 lg:py-28">
-  <div
-    class="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2"
-  >
-    <!-- Miejsce na zdjęcie -->
-    <div
-      class="order-2 flex aspect-4/3 flex-col items-center justify-center gap-4 rounded-2xl border border-dashed border-zinc-300 bg-zinc-100 p-8 dark:border-zinc-700 dark:bg-zinc-900 lg:order-1"
-    >
-      <span
-        class="material-symbols-rounded text-6xl text-zinc-400"
-        aria-hidden="true"
-      >
-        garage
-      </span>
+---
+import { Image } from "astro:assets";
 
-      <p class="text-center text-zinc-500 dark:text-zinc-400">
-        Tutaj dodamy zdjęcie warsztatu
-      </p>
+import warsztat1 from "../assets/warsztat/warsztat1.jpg";
+import warsztat2 from "../assets/warsztat/warsztat2.jpg";
+import warsztat3 from "../assets/warsztat/warsztat3.jpg";
+import warsztat4 from "../assets/warsztat/warsztat4.jpg";
+
+const photos = [
+  warsztat1,
+  warsztat2,
+  warsztat3,
+  warsztat4,
+];
+---
+
+<section id="o-nas" class="scroll-mt-24">
+  <div
+    id="about-carousel"
+    class="relative isolate overflow-hidden bg-zinc-900"
+  >
+    <!-- Zdjęcia w tle -->
+    <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+      {photos.map((photo, index) => (
+        <div
+          data-slide
+          data-active={index === 0 ? "true" : "false"}
+          class="absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out data-[active=true]:opacity-100 motion-reduce:transition-none"
+        >
+          <Image
+            src={photo}
+            alt=""
+            format="webp"
+            quality={80}
+            widths={[640, 960, 1440, 1920]}
+            sizes="100vw"
+            loading={index === 0 ? "eager" : "lazy"}
+            class="h-full w-full object-cover"
+          />
+        </div>
+      ))}
     </div>
 
-    <!-- Tekst -->
-    <div class="order-1 lg:order-2">
-      <p
-        class="mb-4 font-semibold uppercase tracking-wider text-emerald-500"
+    <!-- Przyciemnienie zdjęć -->
+    <div
+      class="pointer-events-none absolute inset-0 bg-black/35"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Zawartość sekcji -->
+    <div
+      class="relative z-10 mx-auto flex min-h-[640px] max-w-6xl flex-col justify-between gap-10 px-6 py-16 lg:min-h-[660px] lg:py-20"
+    >
+      <!-- Nieruchomy panel tekstowy -->
+      <div
+        class="w-full max-w-xl rounded-2xl border border-white/20 bg-white/90 p-6 shadow-2xl backdrop-blur-md sm:p-10 dark:bg-zinc-950/85"
       >
-        Poznaj nas
-      </p>
+        <p class="mb-4 font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+          Poznaj nas
+        </p>
 
-      <h2 class="mb-6 text-3xl font-bold tracking-tight sm:text-4xl">
-        Kilka słów o KlimaGum
-      </h2>
+        <h2 class="mb-6 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-white">
+          Kilka słów o KlimaGum
+        </h2>
 
-      <p
-        class="mb-4 leading-relaxed text-zinc-600 dark:text-zinc-400"
-      >
-        KlimaGum to lokalny warsztat samochodowy w Grębocinie,
-        zajmujący się wulkanizacją oraz bieżącą obsługą pojazdów.
-      </p>
+        <p class="mb-4 leading-relaxed text-zinc-700 dark:text-zinc-300">
+          KlimaGum to lokalny warsztat samochodowy w Grębocinie,
+          zajmujący się wulkanizacją oraz bieżącą obsługą pojazdów.
+        </p>
 
-      <p
-        class="mb-6 leading-relaxed text-zinc-600 dark:text-zinc-400"
-      >
-        Oferujemy między innymi wymianę i naprawę opon,
-        serwis klimatyzacji oraz wymianę oleju i płynów
-        eksploatacyjnych.
-      </p>
+        <p class="mb-6 leading-relaxed text-zinc-700 dark:text-zinc-300">
+          Oferujemy między innymi wymianę i naprawę opon,
+          serwis klimatyzacji oraz wymianę oleju i płynów
+          eksploatacyjnych.
+        </p>
 
-      <div class="mb-8 flex items-center gap-3">
-        <span
-          class="material-symbols-rounded text-emerald-500"
-          aria-hidden="true"
+        <div class="mb-8 flex items-center gap-3 text-zinc-900 dark:text-white">
+          <span
+            class="material-symbols-rounded text-emerald-500"
+            aria-hidden="true"
+          >
+            location_on
+          </span>
+          <span class="font-medium">
+            Grębocin, okolice Torunia
+          </span>
+        </div>
+
+        <a
+          href="#kontakt"
+          class="inline-flex items-center gap-2 font-semibold text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
         >
-          location_on
-        </span>
-
-        <span class="font-medium">
-          Grębocin, okolice Torunia
-        </span>
+          Kontakt i dojazd
+          <span class="material-symbols-rounded" aria-hidden="true">
+            arrow_forward
+          </span>
+        </a>
       </div>
 
-      <a
-        href="#kontakt"
-        class="inline-flex items-center gap-2 font-semibold text-emerald-500 transition-colors hover:text-emerald-600"
-      >
-        Kontakt i dojazd
+      <!-- Sterowanie galerią -->
+      <div class="flex flex-wrap items-center justify-between gap-3 rounded-xl bg-zinc-950/65 p-3 text-white backdrop-blur-sm">
 
-        <span
-          class="material-symbols-rounded"
-          aria-hidden="true"
-        >
-          arrow_forward
-        </span>
-      </a>
+        <!-- Wskaźniki zdjęć -->
+        <div class="flex items-center" role="group" aria-label="Wybór zdjęcia">
+          {photos.map((_, index) => (
+            <button
+              type="button"
+              data-dot
+              data-active={index === 0 ? "true" : "false"}
+              aria-label={`Pokaż zdjęcie ${index + 1} z ${photos.length}`}
+              aria-current={index === 0 ? "true" : "false"}
+              class="group flex h-10 w-8 cursor-pointer items-center justify-center rounded focus-visible:outline-2 focus-visible:outline-emerald-400"
+            >
+              <span
+                class="h-2.5 w-2.5 rounded-full bg-white/50 transition-colors group-data-[active=true]:bg-emerald-400"
+              ></span>
+            </button>
+          ))}
+        </div>
+
+        <!-- Przyciski -->
+        <div class="flex items-center gap-2">
+          <button
+            data-pause
+            type="button"
+            aria-label="Zatrzymaj automatyczną zmianę zdjęć"
+            aria-pressed="false"
+            class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg hover:bg-white/15 motion-reduce:hidden"
+          >
+            <span class="material-symbols-rounded" aria-hidden="true">
+              pause
+            </span>
+          </button>
+
+          <button
+            data-prev
+            type="button"
+            aria-label="Poprzednie zdjęcie"
+            class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg hover:bg-white/15"
+          >
+            <span class="material-symbols-rounded" aria-hidden="true">
+              chevron_left
+            </span>
+          </button>
+
+          <button
+            data-next
+            type="button"
+            aria-label="Następne zdjęcie"
+            class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg hover:bg-white/15"
+          >
+            <span class="material-symbols-rounded" aria-hidden="true">
+              chevron_right
+            </span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+
+<script>
+  const carousel = document.querySelector<HTMLElement>("#about-carousel");
+
+  if (carousel) {
+    const slides = Array.from(
+      carousel.querySelectorAll<HTMLElement>("[data-slide]")
+    );
+
+    const dots = Array.from(
+      carousel.querySelectorAll<HTMLButtonElement>("[data-dot]")
+    );
+
+    const prevButton = carousel.querySelector<HTMLButtonElement>("[data-prev]");
+    const nextButton = carousel.querySelector<HTMLButtonElement>("[data-next]");
+    const pauseButton = carousel.querySelector<HTMLButtonElement>("[data-pause]");
+
+    const pauseIcon = pauseButton?.querySelector<HTMLElement>(
+      ".material-symbols-rounded"
+    );
+
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
+
+    let current = 0;
+    let paused = false;
+    let timer: number | undefined;
+
+    // Wyświetlanie konkretnego zdjęcia
+    function showSlide(index: number) {
+      if (slides.length === 0) return;
+
+      current = (index + slides.length) % slides.length;
+
+      slides.forEach((slide, i) => {
+        slide.dataset.active = String(i === current);
+      });
+
+      dots.forEach((dot, i) => {
+        dot.dataset.active = String(i === current);
+        dot.setAttribute("aria-current", String(i === current));
+      });
+    }
+
+    // Automatyczne przewijanie
+    function syncAutoplay() {
+      window.clearInterval(timer);
+      timer = undefined;
+
+      if (
+        !paused &&
+        !document.hidden &&
+        !reducedMotion.matches &&
+        slides.length > 1
+      ) {
+        timer = window.setInterval(() => {
+          showSlide(current + 1);
+        }, 5000);
+      }
+    }
+
+    function changeSlide(index: number) {
+      showSlide(index);
+      syncAutoplay();
+    }
+
+    prevButton?.addEventListener("click", () => {
+      changeSlide(current - 1);
+    });
+
+    nextButton?.addEventListener("click", () => {
+      changeSlide(current + 1);
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        changeSlide(index);
+      });
+    });
+
+    // Przycisk pauzy
+    pauseButton?.addEventListener("click", () => {
+      paused = !paused;
+
+      pauseButton.setAttribute("aria-pressed", String(paused));
+      pauseButton.setAttribute(
+        "aria-label",
+        paused
+          ? "Wznów automatyczną zmianę zdjęć"
+          : "Zatrzymaj automatyczną zmianę zdjęć"
+      );
+
+      if (pauseIcon) {
+        pauseIcon.textContent = paused ? "play_arrow" : "pause";
+      }
+
+      syncAutoplay();
+    });
+
+    // Zatrzymanie po wejściu klawiaturą w kontrolki
+    carousel.addEventListener("focusin", (event) => {
+      if (!(event.target instanceof HTMLElement)) return;
+
+      if (event.target.matches("button")) {
+        paused = true;
+        pauseButton?.setAttribute("aria-pressed", "true");
+        pauseButton?.setAttribute(
+          "aria-label",
+          "Wznów automatyczną zmianę zdjęć"
+        );
+        if (pauseIcon) pauseIcon.textContent = "play_arrow";
+        syncAutoplay();
+      }
+    });
+
+    // Pauza, gdy karta przeglądarki jest nieaktywna
+    document.addEventListener("visibilitychange", syncAutoplay);
+    reducedMotion.addEventListener("change", syncAutoplay);
+
+    // Gesty przesuwania na telefonie
+    let touchX = 0;
+    let touchY = 0;
+
+    carousel.addEventListener("touchstart", (event) => {
+      touchX = event.touches[0].clientX;
+      touchY = event.touches[0].clientY;
+    }, { passive: true });
+
+    carousel.addEventListener("touchend", (event) => {
+      const deltaX = event.changedTouches[0].clientX - touchX;
+      const deltaY = event.changedTouches[0].clientY - touchY;
+
+      if (Math.abs(deltaX) > 50 &&
+          Math.abs(deltaX) > Math.abs(deltaY) * 1.25) {
+        changeSlide(current + (deltaX < 0 ? 1 : -1));
+      }
+    }, { passive: true });
+
+    syncAutoplay();
+  }
+</script>
