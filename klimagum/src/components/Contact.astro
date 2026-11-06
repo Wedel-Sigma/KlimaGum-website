@@ -48,7 +48,7 @@ import { site, mapsUrl } from "../data/site";
             <h3 class="mb-1 font-semibold">Adres</h3>
             <address class="not-italic text-zinc-600 dark:text-zinc-400">
               {site.address.street}<br />
-              {site.address.city}
+              {site.address.postalCode} {site.address.city}
             </address>
           </div>
         </div>
@@ -68,6 +68,28 @@ import { site, mapsUrl } from "../data/site";
               </div>
           </div>
         </div>
+        
+        <div class="flex items-start gap-4">
+          <span
+            class="material-symbols-rounded text-3xl text-emerald-500"
+            aria-hidden="true"
+          >
+            badge
+          </span>
+
+          <div>
+            <h3 class="mb-1 font-semibold">Dane przedsiębiorcy</h3>
+
+            <p class="text-zinc-600 dark:text-zinc-400">
+              {site.owner}
+            </p>
+
+            <p class="text-zinc-600 dark:text-zinc-400">
+              NIP: {site.nip}
+            </p>
+          </div>
+        </div>
+
 
       </div>
 
