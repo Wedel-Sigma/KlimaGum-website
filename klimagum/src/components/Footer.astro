@@ -12,9 +12,21 @@ const currentYear = new Date().getFullYear();
     <div class="grid gap-10 md:grid-cols-3">
 
       <!-- Informacje o firmie -->
-      <div>
-        <a href="/#start" class="text-2xl font-bold tracking-tight">
-          Klima<span class="text-emerald-500">Gum</span>
+      <div>    
+        <a href="/#start" class="inline-flex items-center" aria-label="KlimaGum – strona główna">
+          <img
+            src="/images/logo-light.png"
+            alt=""
+            loading="lazy"
+            class="block w-44 h-auto dark:hidden"
+          />
+
+          <img
+            src="/images/logo-dark.png"
+            alt=""
+            loading="lazy"
+            class="hidden w-44 h-auto dark:block"
+          />
         </a>
 
         <p class="mt-4 max-w-xs leading-relaxed text-zinc-600 dark:text-zinc-400">
